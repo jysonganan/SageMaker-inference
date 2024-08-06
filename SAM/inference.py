@@ -20,7 +20,7 @@ model = None
 processor = None
 
 
-def model_fn(model_dir):
+def model_fn(model_dir, context=None):
     global model, processor
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = SamModel.from_pretrained(model_dir).to(device)
